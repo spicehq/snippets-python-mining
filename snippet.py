@@ -5,9 +5,8 @@ Find more information at https://github.com/spicehq/samples
 
 from pyarrow import flight
 
-api_key = '3031|abcd'  # TODO: replace with API key
 client = flight.connect('grpc+tls://flight.spiceai.io')
-token_pair = client.authenticate_basic_token('', api_key)
+token_pair = client.authenticate_basic_token('', 'API_KEY')
 options = flight.FlightCallOptions(headers=[token_pair])
 
 flight_info = client.get_flight_info(flight.FlightDescriptor.for_command(
